@@ -48,7 +48,7 @@ public class KeywordsPanel extends JPanel implements Readable<String>, Changeabl
         StringBuilder builder = new StringBuilder();
         for (JComponent component : requests) {
             builder.append(((JLabel) component).getText());
-            builder.append("/n");
+            builder.append("\n");
         }
         return builder.toString();
     }
