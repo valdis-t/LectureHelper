@@ -1,4 +1,4 @@
-package component.panel;
+package gui.panel;
 
 import controller.Controller;
 import exception.UnsupportedComponentException;
@@ -10,17 +10,25 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchRequestPanel extends JPanel implements Readable<String>, Changeable<String> {
+public class KeywordsPanel extends JPanel implements Readable<String>, Changeable<String> {
     private final List<JComponent> requests;
 
     {
         requests = new ArrayList<>();
     }
 
-    public SearchRequestPanel() {
+    public KeywordsPanel() {
         super();
         initialize();
         register();
+    }
+
+    private void initialize() {
+        mockRequests();
+        setName("KEYWORDS");
+        setBackground(Color.RED);
+        setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+        for (JComponent component : requests) add(component);
     }
 
     private void register() {
@@ -31,16 +39,8 @@ public class SearchRequestPanel extends JPanel implements Readable<String>, Chan
         }
     }
 
-    private void initialize() {
-        mockRequests();
-        setName("SEARCH REQUESTS");
-        setBackground(Color.CYAN);
-        setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
-        for (JComponent component : requests) add(component);
-    }
-
     private void mockRequests() {
-        for (int k = 0; k < 20; k++) requests.add(new JLabel("поисковый запрос №" + k + " из " + this.getName()));
+        for (int k = 0; k < 20; k++) requests.add(new JLabel("ключевое слово №" + k + " из " + this.getName()));
     }
 
     @Override

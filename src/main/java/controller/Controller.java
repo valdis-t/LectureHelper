@@ -1,6 +1,6 @@
 package controller;
 
-import component.panel.*;
+import gui.panel.*;
 import exception.UnsupportedComponentException;
 import interfaces.Changeable;
 import interfaces.Readable;

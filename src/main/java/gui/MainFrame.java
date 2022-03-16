@@ -1,7 +1,7 @@
 package gui;
 
 import boot.GUIComponentParameter;
-import component.panel.*;
+import gui.panel.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,18 +25,18 @@ public class MainFrame extends JFrame {
         super("LectureHelper");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        JPanel textPlusBottonPanel = new JPanel();
-        textPlusBottonPanel.setBackground(Color.black);
-        textPlusBottonPanel.setLayout(new BoxLayout(textPlusBottonPanel, BoxLayout.Y_AXIS));
-        textPlusBottonPanel.add(textPanel);
-        textPlusBottonPanel.add(bottomPanel);
+        JPanel textPlusBottomPanel = new JPanel();
+        textPlusBottomPanel.setBackground(Color.black);
+        textPlusBottomPanel.setLayout(new BoxLayout(textPlusBottomPanel, BoxLayout.Y_AXIS));
+        textPlusBottomPanel.add(textPanel);
+        textPlusBottomPanel.add(bottomPanel);
 
         JPanel requestsPlusControlPanel = new JPanel();
         requestsPlusControlPanel.setLayout(new BoxLayout(requestsPlusControlPanel, BoxLayout.Y_AXIS));
         requestsPlusControlPanel.add(searchRequestAndKeywordPanel);
         requestsPlusControlPanel.add(controlPanel);
 
-        rootPanel.add(textPlusBottonPanel);
+        rootPanel.add(textPlusBottomPanel);
         rootPanel.add(requestsPlusControlPanel);
         add(rootPanel);
         pack();

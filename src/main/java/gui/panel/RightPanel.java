@@ -1,4 +1,4 @@
-package component.panel;
+package gui.panel;
 
 import boot.GUIComponentParameter;
 import util.TextFormatterForGUIComponent;

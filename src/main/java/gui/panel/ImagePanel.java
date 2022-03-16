@@ -1,4 +1,4 @@
-package component.panel;
+package gui.panel;
 
 import controller.Controller;
 import exception.UnsupportedComponentException;
