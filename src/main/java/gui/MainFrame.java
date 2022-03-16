@@ -1,4 +1,4 @@
-package component.frame;
+package gui;
 
 import boot.GUIComponentParameter;
 import component.panel.*;
@@ -16,7 +16,7 @@ public class MainFrame extends JFrame {
     {
         rootPanel = new RootPanel();
         textPanel = new TextPanel();
-        searchRequestAndKeywordPanel = new SearchRequestAndKeywordPanel();
+        searchRequestAndKeywordPanel = new RightPanel();
         controlPanel = new ControlPanel();
         bottomPanel = new BottomPanel();
     }
@@ -41,7 +41,6 @@ public class MainFrame extends JFrame {
         add(rootPanel);
         pack();
         setMinimumSize(this.getSize());
-        setVisible(true);
     }
 
     private void testPanel(JPanel panel) {
