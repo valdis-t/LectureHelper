@@ -1,0 +1,12 @@
+package boot;
+
+public enum GUIComponentEvent {
+    ADD_TO_SEARCH_REQUESTS,
+    ADD_TO_KEYWORDS,
+    REMOVE_LAST_SEARCH_REQUEST,
+    REMOVE_LAST_KEYWORD,
+    INSERT_IMG,
+    INSERT_REQUEST_TO_TEXT,
+    OPEN_IN_BROWSER,
+    SAVE
+}
