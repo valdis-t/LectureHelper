@@ -68,4 +68,12 @@ public class Controller {
     public String getCurrentText(){
         return currentText.getData();
     }
+
+    public void addKeyword(){
+        keys.setData(currentRequest.getData());
+    }
+
+    public void addSearchRequest(){
+        searchRequests.setData(currentRequest.getData());
+    }
 }
