@@ -53,4 +53,19 @@ public class Controller {
                         images != null;
     }
 
+    public String getCurrentKeys(){
+        return currentKeys.getData();
+    }
+
+    public String getCurrentSearchRequests(){
+        return currentSearchRequests.getData();
+    }
+
+    public String getCurrentRequest(){
+        return currentRequest.getData();
+    }
+
+    public String getCurrentText(){
+        return currentText.getData();
+    }
 }
