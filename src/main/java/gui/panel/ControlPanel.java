@@ -19,25 +19,32 @@ public class ControlPanel extends JPanel {
     private void initializeButtons() {
         ArrayList<JButton> buttonList = new ArrayList<>();
 
-        JButton getTextFromText = new JButton("getTextFromText");
+        JButton getTextFromText = new JButton("from text");
         getTextFromText.addActionListener(l -> System.out.println(Controller.getController().getCurrentText()));
         buttonList.add(getTextFromText);
-        JButton getTextFromRequest = new JButton("getTextFromRequest");
+
+        JButton getTextFromRequest = new JButton("from request");
         getTextFromRequest.addActionListener(l -> System.out.println(Controller.getController().getCurrentRequest()));
         buttonList.add(getTextFromRequest);
-        JButton getTextFromKeywords = new JButton("getTextFromKeywords");
+
+        JButton getTextFromKeywords = new JButton("from keywords");
         getTextFromKeywords.addActionListener(l -> System.out.println(Controller.getController().getCurrentKeys()));
         buttonList.add(getTextFromKeywords);
-        JButton getTextFromSearch = new JButton("getTextFromSearch");
+
+        JButton getTextFromSearch = new JButton("from searchs");
         getTextFromSearch.addActionListener(l -> System.out.println(Controller.getController().getCurrentSearchRequests()));
         buttonList.add(getTextFromSearch);
-        JButton checkIsInitialised = new JButton("checkIsInitialised");
-        checkIsInitialised.addActionListener(l -> System.out.println("is initialised " + Controller.getController().isInitialised()));
-        buttonList.add(checkIsInitialised);
 
+        JButton sendRequestToKeywords = new JButton("to keys");
+        sendRequestToKeywords.addActionListener(l -> Controller.getController().addKeyword());
+        buttonList.add(sendRequestToKeywords);
+
+        JButton sendRequestToSearchRequest = new JButton("to searchs");
+        sendRequestToSearchRequest.addActionListener(l -> Controller.getController().addSearchRequest());
+        buttonList.add(sendRequestToSearchRequest);
 
         for(JButton button : buttonList){
-            button.setPreferredSize(new Dimension(GUIComponentParameter.controlPanelDimension().width / 2 - 7, GUIComponentParameter.controlPanelDimension().height / 3 - 7));
+            button.setPreferredSize(new Dimension(GUIComponentParameter.controlPanelDimension().width / 2 - 7, GUIComponentParameter.controlPanelDimension().height / 4 - 7));
             add(button);
         }
     }
