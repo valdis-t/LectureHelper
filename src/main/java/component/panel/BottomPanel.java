@@ -1,11 +1,14 @@
 package component.panel;
 
 import boot.GUIComponentParameter;
+import controller.Controller;
+import exception.UnsupportedComponentException;
+import interfaces.Readable;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class BottomPanel extends JPanel {
+public class BottomPanel extends JPanel implements Readable<String> {
     private final JTextField textField = new JTextField();
     private final JLabel label = new JLabel("REQUEST");
 
@@ -20,7 +23,21 @@ public class BottomPanel extends JPanel {
         setAlignmentX(Component.CENTER_ALIGNMENT);
         add(label);
         add(textField);
+        register();
         revalidate();
         repaint();
+    }
+
+    private void register() {
+        try {
+            Controller.getController().registerComponent(this);
+        } catch (UnsupportedComponentException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public String getData() {
+        return textField.getText();
     }
 }

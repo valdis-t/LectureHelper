@@ -1,25 +1,36 @@
 package component.panel;
 
 import boot.GUIComponentParameter;
-import form.Readable;
+import controller.Controller;
+import exception.UnsupportedComponentException;
+import interfaces.Readable;
 
 import javax.swing.*;
 
-public class TextPanel extends JTabbedPane implements Readable {
+public class TextPanel extends JTabbedPane implements Readable<String> {
     private final JTextArea textArea;
+
+    {
+        textArea = new JTextArea();
+    }
 
     public TextPanel() {
         setPreferredSize(GUIComponentParameter.textPanelDimension());
         setBackground(GUIComponentParameter.textPanelColor);
         add(new JScrollPane(textArea));
+        register();
+    }
+
+    private void register() {
+        try {
+            Controller.getController().registerComponent(this);
+        } catch (UnsupportedComponentException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
-    public String readText() {
-        return null;
-    }
-
-    {
-        textArea = new JTextArea();
+    public String getData() {
+        return textArea.getText();
     }
 }

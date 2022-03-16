@@ -1,6 +1,7 @@
 package component.panel;
 
 import boot.GUIComponentParameter;
+import controller.Controller;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,6 +20,7 @@ public class ControlPanel extends JPanel {
             JButton button = new JButton("button " + i);
             button.setPreferredSize(new Dimension(GUIComponentParameter.controlPanelDimension().width / 2 - 7, GUIComponentParameter.controlPanelDimension().height / 3 - 7));
             add(button);
+            button.addActionListener(l -> System.out.println(Controller.getController().isInitialised()));
         }
     }
 }
