@@ -24,7 +24,6 @@ public class KeywordsPanel extends JPanel implements Readable<String>, Changeabl
     }
 
     private void initialize() {
-        mockRequests();
         setName("KEYWORDS");
         setBackground(Color.RED);
         setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
@@ -39,10 +38,6 @@ public class KeywordsPanel extends JPanel implements Readable<String>, Changeabl
         }
     }
 
-    private void mockRequests() {
-        for (int k = 0; k < 20; k++) requests.add(new JLabel("ключевое слово №" + k + " из " + this.getName()));
-    }
-
     @Override
     public String getData() {
         StringBuilder builder = new StringBuilder();
@@ -55,6 +50,9 @@ public class KeywordsPanel extends JPanel implements Readable<String>, Changeabl
 
     @Override
     public void setData(String data) {
-
+        JLabel label = new JLabel(data);
+        requests.add(label);
+        add(label);
+        revalidate();
     }
 }
