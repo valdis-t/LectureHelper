@@ -4,11 +4,12 @@ import boot.GUIComponentParameter;
 import controller.Controller;
 import exception.UnsupportedComponentException;
 import interfaces.Changeable;
+import interfaces.entity.CurrentRequest;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class BottomPanel extends JPanel implements Changeable<String> {
+public class BottomPanel extends JPanel implements CurrentRequest {
     private final String EMPTY_TEXT = "";
     private final JTextField textField = new JTextField();
     private final JLabel label = new JLabel("REQUEST");

@@ -4,10 +4,11 @@ import boot.GUIComponentParameter;
 import controller.Controller;
 import exception.UnsupportedComponentException;
 import interfaces.Readable;
+import interfaces.entity.MainText;
 
 import javax.swing.*;
 
-public class TextPanel extends JTabbedPane implements Readable<String> {
+public class TextPanel extends JTabbedPane implements MainText {
     private final JTextArea textArea;
 
     {
