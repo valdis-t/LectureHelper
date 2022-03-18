@@ -23,7 +23,7 @@ public class TextPanel extends JTabbedPane implements Readable<String> {
 
     private void register() {
         try {
-            Controller.getController().registerComponent(this);
+            Controller.register(this);
         } catch (UnsupportedComponentException e) {
             e.printStackTrace();
         }
