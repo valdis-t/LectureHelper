@@ -2,6 +2,7 @@ package gui.panel;
 
 import boot.GUIComponentParameter;
 import controller.Controller;
+import controller.TextController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,32 +20,48 @@ public class ControlPanel extends JPanel {
     private void initializeButtons() {
         ArrayList<JButton> buttonList = new ArrayList<>();
 
-        JButton getTextFromText = new JButton("from text");
-        getTextFromText.addActionListener(l -> System.out.println(Controller.getController().getCurrentText()));
-        buttonList.add(getTextFromText);
+        JButton addRequestToKeywords = new JButton("addRequestToKeywords");
+        buttonList.add(addRequestToKeywords);
+        addRequestToKeywords.addActionListener(l -> Controller.addRequestToKeywords());
 
-        JButton getTextFromRequest = new JButton("from request");
-        getTextFromRequest.addActionListener(l -> System.out.println(Controller.getController().getCurrentRequest()));
-        buttonList.add(getTextFromRequest);
+        JButton addRequestToSearchRequests = new JButton("addRequestToSearchRequests");
+        buttonList.add(addRequestToSearchRequests);
+        addRequestToSearchRequests.addActionListener(l -> Controller.addRequestToSearchRequests());
 
-        JButton getTextFromKeywords = new JButton("from keywords");
-        getTextFromKeywords.addActionListener(l -> System.out.println(Controller.getController().getCurrentKeys()));
-        buttonList.add(getTextFromKeywords);
+        JButton removeLastKeyword = new JButton("removeLastKeyword");
+        buttonList.add(removeLastKeyword);
+        removeLastKeyword.addActionListener(l -> Controller.removeLastKeyword());
 
-        JButton getTextFromSearch = new JButton("from searchs");
-        getTextFromSearch.addActionListener(l -> System.out.println(Controller.getController().getCurrentSearchRequests()));
-        buttonList.add(getTextFromSearch);
+        JButton removeLastSearchRequest = new JButton("removeLastSearchRequest");
+        buttonList.add(removeLastSearchRequest);
+        removeLastSearchRequest.addActionListener(l -> Controller.removeLastSearchRequest());
 
-        JButton sendRequestToKeywords = new JButton("to keys");
-        sendRequestToKeywords.addActionListener(l -> Controller.getController().addKeyword());
-        buttonList.add(sendRequestToKeywords);
+        JButton removeAllKeyword = new JButton("removeAllKeyword");
+        buttonList.add(removeAllKeyword);
+        removeAllKeyword.addActionListener(l -> Controller.removeAllKeywords());
 
-        JButton sendRequestToSearchRequest = new JButton("to searchs");
-        sendRequestToSearchRequest.addActionListener(l -> Controller.getController().addSearchRequest());
-        buttonList.add(sendRequestToSearchRequest);
+        JButton removeAllSearchRequest = new JButton("removeAllSearchRequest");
+        buttonList.add(removeAllSearchRequest);
+        removeAllSearchRequest.addActionListener(l -> Controller.removeAllSearchRequests());
 
-        for(JButton button : buttonList){
-            button.setPreferredSize(new Dimension(GUIComponentParameter.controlPanelDimension().width / 2 - 7, GUIComponentParameter.controlPanelDimension().height / 4 - 7));
+        JButton cleanRequestField = new JButton("cleanRequestField");
+        buttonList.add(cleanRequestField);
+        cleanRequestField.addActionListener(l -> Controller.cleanRequestField());
+
+        JButton saveFile = new JButton("save file");
+        buttonList.add(saveFile);
+        saveFile.addActionListener(l -> TextController.getController().saveFile());
+
+        JButton saveAs = new JButton("save as");
+        buttonList.add(saveAs);
+        saveAs.addActionListener(l -> TextController.getController().saveAs());
+
+        JButton printToCL = new JButton("print");
+        buttonList.add(printToCL);
+        printToCL.addActionListener(l -> TextController.getController().printToCL());
+
+        for (JButton button : buttonList) {
+            button.setPreferredSize(new Dimension(GUIComponentParameter.controlPanelDimension().width / 2 - 7, GUIComponentParameter.controlPanelDimension().height / 5 - 7));
             add(button);
         }
     }
