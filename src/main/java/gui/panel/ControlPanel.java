@@ -50,15 +50,15 @@ public class ControlPanel extends JPanel {
 
         JButton saveFile = new JButton("save file");
         buttonList.add(saveFile);
-        saveFile.addActionListener(l -> TextController.getController().saveFile());
+        saveFile.addActionListener(l -> Controller.saveFile());
 
         JButton saveAs = new JButton("save as");
         buttonList.add(saveAs);
-        saveAs.addActionListener(l -> TextController.getController().saveAs());
+        saveAs.addActionListener(l -> Controller.saveAs());
 
         JButton printToCL = new JButton("print");
         buttonList.add(printToCL);
-        printToCL.addActionListener(l -> TextController.getController().printToCL());
+        printToCL.addActionListener(l -> Controller.printToCL());
 
         for (JButton button : buttonList) {
             button.setPreferredSize(new Dimension(GUIComponentParameter.controlPanelDimension().width / 2 - 7, GUIComponentParameter.controlPanelDimension().height / 5 - 7));
