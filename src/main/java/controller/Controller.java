@@ -1,79 +1,58 @@
 package controller;
 
-import gui.panel.*;
 import exception.UnsupportedComponentException;
 import interfaces.Changeable;
 import interfaces.Readable;
 
-import java.awt.*;
-
 public class Controller {
-    private static Controller controller;
-    private Readable<String> currentKeys;
-    private Readable<String> currentSearchRequests;
-    private Readable<Image> currentImages;
-    private Readable<String> currentRequest;
-    private Readable<String> currentText;
-    private Changeable<String> keys;
-    private Changeable<String> searchRequests;
-    private Changeable<Image> images;
+    private final static ComponentController componentController = ComponentController.getController();
+    private final static TextController textController = TextController.getController();
 
     private Controller() {
     }
 
-    public static Controller getController() {
-        if (controller == null) controller = new Controller();
-        return controller;
+    public static void register(Readable<String> entry) throws UnsupportedComponentException {
+        textController.register(entry);
+        if (entry instanceof Changeable) componentController.register((Changeable<String>) entry);
     }
 
-    public void registerComponent(Object component) throws UnsupportedComponentException {
-        if (component instanceof TextPanel) currentText = (Readable<String>) component;
-        else if (component instanceof BottomPanel) currentRequest = (Readable<String>) component;
-        else if (component instanceof KeywordsPanel) {
-            currentKeys = (Readable<String>) component;
-            keys = (Changeable<String>) component;
-        } else if (component instanceof SearchRequestPanel) {
-            currentSearchRequests = (Readable<String>) component;
-            searchRequests = (Changeable<String>) component;
-        } else if (component instanceof ImagePanel) {
-            currentImages = (Readable<Image>) component;
-            images = (Changeable<Image>) component;
-        } else throw new UnsupportedComponentException();
+    public static void saveFile() {
+        textController.saveFile();
     }
 
-    public boolean isInitialised() {
-        return
-                currentKeys != null &
-                        currentSearchRequests != null &
-                        currentImages != null &
-                        currentRequest != null &
-                        currentText != null &
-                        keys != null &
-                        searchRequests != null &
-                        images != null;
+    public static void saveAs() {
+        textController.saveAs();
     }
 
-    public String getCurrentKeys(){
-        return currentKeys.getData();
+    public static void printToCL() {
+        textController.printToCL();
     }
 
-    public String getCurrentSearchRequests(){
-        return currentSearchRequests.getData();
+    public static void addRequestToKeywords() {
+        componentController.addRequestToKeywords();
     }
 
-    public String getCurrentRequest(){
-        return currentRequest.getData();
+    public static void addRequestToSearchRequests() {
+        componentController.addRequestToSearchRequests();
     }
 
-    public String getCurrentText(){
-        return currentText.getData();
+    public static void removeLastKeyword() {
+        componentController.removeLastKeyword();
     }
 
-    public void addKeyword(){
-        keys.setData(currentRequest.getData());
+    public static void removeLastSearchRequest() {
+        componentController.removeLastSearchRequest();
     }
 
-    public void addSearchRequest(){
-        searchRequests.setData(currentRequest.getData());
+    public static void removeAllKeywords() {
+        componentController.removeAllKeywords();
+    }
+
+    public static void removeAllSearchRequests() {
+        componentController.removeAllSearchRequest();
+    }
+
+    public static void cleanRequestField() {
+        componentController.cleanRequestField();
     }
 }
