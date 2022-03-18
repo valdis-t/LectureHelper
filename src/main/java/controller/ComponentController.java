@@ -1,10 +1,10 @@
 package controller;
 
 import exception.UnsupportedComponentException;
-import gui.panel.BottomPanel;
-import gui.panel.KeywordsPanel;
-import gui.panel.SearchRequestPanel;
 import interfaces.Changeable;
+import interfaces.entity.CurrentRequest;
+import interfaces.entity.Keywords;
+import interfaces.entity.SearchRequests;
 
 public class ComponentController {
     private static ComponentController controller;
@@ -20,9 +20,9 @@ public class ComponentController {
     }
 
     public void register(Changeable<String> changeable) throws UnsupportedComponentException {
-        if (changeable instanceof KeywordsPanel) keys = changeable;
-        else if (changeable instanceof SearchRequestPanel) searchRequests = changeable;
-        else if (changeable instanceof BottomPanel) requestLine = changeable;
+        if (changeable instanceof Keywords) keys = changeable;
+        else if (changeable instanceof SearchRequests) searchRequests = changeable;
+        else if (changeable instanceof CurrentRequest) requestLine = changeable;
         else throw new UnsupportedComponentException();
     }
 

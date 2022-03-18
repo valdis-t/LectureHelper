@@ -1,19 +1,21 @@
 package controller;
 
 import exception.UnsupportedComponentException;
-import gui.panel.BottomPanel;
-import gui.panel.KeywordsPanel;
-import gui.panel.SearchRequestPanel;
-import gui.panel.TextPanel;
 import interfaces.Readable;
+import interfaces.entity.CurrentRequest;
+import interfaces.entity.Keywords;
+import interfaces.entity.MainText;
+import interfaces.entity.SearchRequests;
 import util.FileManager;
 
 public class TextController {
-    public static final String NEW_LINE = "\n";
     private static TextController controller;
     private Readable<String> keywords;
     private Readable<String> searchRequests;
     private Readable<String> currentText;
+
+    private final String NEW_LINE = "\n";
+
     private TextController() {
     }
 
@@ -23,20 +25,11 @@ public class TextController {
     }
 
     public void register(Readable<String> entry) throws UnsupportedComponentException {
-        if (entry instanceof TextPanel) currentText = entry;
-        else if (entry instanceof KeywordsPanel) keywords = entry;
-        else if (entry instanceof SearchRequestPanel) searchRequests = entry;
-        else if (entry instanceof BottomPanel) {
-        } else throw new UnsupportedComponentException();
-    }
-
-
-    public boolean isInitialised() {
-        return
-                keywords != null &
-                        searchRequests != null &
-                        currentText != null &
-                        searchRequests != null;
+        if (entry instanceof MainText) currentText = entry;
+        else if (entry instanceof Keywords) keywords = entry;
+        else if (entry instanceof SearchRequests) searchRequests = entry;
+        else if (entry instanceof CurrentRequest) {}
+        else throw new UnsupportedComponentException();
     }
 
     public void saveFile() {
