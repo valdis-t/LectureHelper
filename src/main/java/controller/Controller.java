@@ -5,8 +5,8 @@ import interfaces.Changeable;
 import interfaces.Readable;
 
 public class Controller {
-    private final static ComponentController componentController = ComponentController.getController();
-    private final static TextController textController = TextController.getController();
+    private final static ComponentController componentController = new ComponentController();
+    private final static TextController textController = new TextController();
 
     private Controller() {
     }

@@ -9,20 +9,11 @@ import interfaces.entity.SearchRequests;
 import util.FileManager;
 
 public class TextController {
-    private static TextController controller;
     private Readable<String> keywords;
     private Readable<String> searchRequests;
     private Readable<String> currentText;
 
     private final String NEW_LINE = "\n";
-
-    private TextController() {
-    }
-
-    public static TextController getController() {
-        if (controller == null) controller = new TextController();
-        return controller;
-    }
 
     public void register(Readable<String> entry) throws UnsupportedComponentException {
         if (entry instanceof MainText) currentText = entry;
