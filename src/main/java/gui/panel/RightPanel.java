@@ -23,8 +23,5 @@ public class RightPanel extends JTabbedPane {
         JPanel searchRequestsPanel = new SearchRequestPanel();
         add(new JScrollPane(searchRequestsPanel), TextFormatterForGUIComponent.getVerticalText(searchRequestsPanel.getName()));
 
-        JPanel imagesPanel = new ImagePanel();
-        imagesPanel.setName("IMAGES");
-        add(new JScrollPane(imagesPanel), TextFormatterForGUIComponent.getVerticalText(imagesPanel.getName()));
     }
 }
