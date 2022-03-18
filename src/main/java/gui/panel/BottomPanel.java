@@ -3,12 +3,13 @@ package gui.panel;
 import boot.GUIComponentParameter;
 import controller.Controller;
 import exception.UnsupportedComponentException;
-import interfaces.Readable;
+import interfaces.Changeable;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class BottomPanel extends JPanel implements Readable<String> {
+public class BottomPanel extends JPanel implements Changeable<String> {
+    private final String EMPTY_TEXT = "";
     private final JTextField textField = new JTextField();
     private final JLabel label = new JLabel("REQUEST");
 
@@ -30,7 +31,7 @@ public class BottomPanel extends JPanel implements Readable<String> {
 
     private void register() {
         try {
-            Controller.getController().registerComponent(this);
+            Controller.register(this);
         } catch (UnsupportedComponentException e) {
             e.printStackTrace();
         }
@@ -39,5 +40,20 @@ public class BottomPanel extends JPanel implements Readable<String> {
     @Override
     public String getData() {
         return textField.getText();
+    }
+
+
+    @Override
+    public void setData(String data) {
+    }
+
+    @Override
+    public void removeLast() {
+        this.removeAll();
+    }
+
+    @Override
+    public void removeAll() {
+        textField.setText(EMPTY_TEXT);
     }
 }
