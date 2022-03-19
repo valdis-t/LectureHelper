@@ -1,4 +1,4 @@
-package controller;
+package controller.component;
 
 import exception.UnsupportedComponentException;
 import interfaces.Changeable;
