@@ -2,9 +2,9 @@ package controller;
 
 import exception.UnsupportedComponentException;
 import interfaces.Changeable;
-import interfaces.entity.CurrentRequest;
-import interfaces.entity.Keywords;
-import interfaces.entity.SearchRequests;
+import interfaces.entity.gui.CurrentRequest;
+import interfaces.entity.gui.Keywords;
+import interfaces.entity.gui.SearchRequests;
 
 public class ComponentController {
     private Changeable<String> keys;

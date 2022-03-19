@@ -1,6 +1,6 @@
 package gui.panel;
 
-import interfaces.entity.SearchRequests;
+import interfaces.entity.gui.SearchRequests;
 
 import java.awt.*;
 

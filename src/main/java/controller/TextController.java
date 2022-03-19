@@ -2,10 +2,10 @@ package controller;
 
 import exception.UnsupportedComponentException;
 import interfaces.Readable;
-import interfaces.entity.CurrentRequest;
-import interfaces.entity.Keywords;
-import interfaces.entity.MainText;
-import interfaces.entity.SearchRequests;
+import interfaces.entity.gui.CurrentRequest;
+import interfaces.entity.gui.Keywords;
+import interfaces.entity.gui.MainText;
+import interfaces.entity.gui.SearchRequests;
 import util.FileManager;
 
 public class TextController {

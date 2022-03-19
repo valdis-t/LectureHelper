@@ -1,6 +1,6 @@
 package gui.panel;
 
-import interfaces.entity.Keywords;
+import interfaces.entity.gui.Keywords;
 
 import java.awt.*;
 
