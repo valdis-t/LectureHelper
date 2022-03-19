@@ -1,28 +1,21 @@
 package controller;
 
+import controller.component.ComponentController;
+import controller.file.FileController;
+import controller.text.DataController;
 import exception.UnsupportedComponentException;
 import interfaces.Changeable;
 import interfaces.Readable;
+import interfaces.entity.gui.CurrentRequest;
 
 public class Controller {
     private final static ComponentController componentController = new ComponentController();
-    private final static TextController textController = new TextController();
+    private final static DataController dataController = new DataController();
+    private final static FileController fileController = new FileController();
 
     public void register(Readable<String> entry) throws UnsupportedComponentException {
-        textController.register(entry);
+        if(!(entry instanceof CurrentRequest)) dataController.register(entry);
         if (entry instanceof Changeable) componentController.register((Changeable<String>) entry);
-    }
-
-    public static void saveFile() {
-        textController.saveFile();
-    }
-
-    public static void saveAs() {
-        textController.saveAs();
-    }
-
-    public static void printToCL() {
-        textController.printToCL();
     }
 
     public static void addRequestToKeywords() {
@@ -51,5 +44,11 @@ public class Controller {
 
     public static void cleanRequestField() {
         componentController.cleanRequestField();
+    }
+
+    public static void printToCL(){ System.out.println(dataController.getWebPage()); }
+
+    public static void saveFile(){
+        fileController.saveFileAsHtml(dataController.getWebPage());
     }
 }
