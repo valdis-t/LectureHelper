@@ -3,8 +3,7 @@ package gui.panel;
 import boot.GUIComponentParameter;
 import controller.Controller;
 import exception.UnsupportedComponentException;
-import interfaces.Changeable;
-import interfaces.entity.CurrentRequest;
+import interfaces.entity.gui.CurrentRequest;
 
 import javax.swing.*;
 import java.awt.*;
@@ -32,7 +31,7 @@ public class BottomPanel extends JPanel implements CurrentRequest {
 
     private void register() {
         try {
-            Controller.register(this);
+            new Controller().register(this);
         } catch (UnsupportedComponentException e) {
             e.printStackTrace();
         }

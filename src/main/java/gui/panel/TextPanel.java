@@ -3,8 +3,7 @@ package gui.panel;
 import boot.GUIComponentParameter;
 import controller.Controller;
 import exception.UnsupportedComponentException;
-import interfaces.Readable;
-import interfaces.entity.MainText;
+import interfaces.entity.gui.MainText;
 
 import javax.swing.*;
 
@@ -24,7 +23,7 @@ public class TextPanel extends JTabbedPane implements MainText {
 
     private void register() {
         try {
-            Controller.register(this);
+            new Controller().register(this);
         } catch (UnsupportedComponentException e) {
             e.printStackTrace();
         }

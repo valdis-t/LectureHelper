@@ -22,7 +22,7 @@ public abstract class RequestPanel extends JPanel implements Changeable<String> 
 
     private void register() {
         try {
-            Controller.register(this);
+            new Controller().register(this);
         } catch (UnsupportedComponentException e) {
             e.printStackTrace();
         }
