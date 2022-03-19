@@ -8,10 +8,7 @@ public class Controller {
     private final static ComponentController componentController = new ComponentController();
     private final static TextController textController = new TextController();
 
-    private Controller() {
-    }
-
-    public static void register(Readable<String> entry) throws UnsupportedComponentException {
+    public void register(Readable<String> entry) throws UnsupportedComponentException {
         textController.register(entry);
         if (entry instanceof Changeable) componentController.register((Changeable<String>) entry);
     }
