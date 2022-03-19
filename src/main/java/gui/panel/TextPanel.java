@@ -18,6 +18,8 @@ public class TextPanel extends JTabbedPane implements MainText {
         setName("Основной текст");
         setPreferredSize(GUIComponentParameter.textPanelDimension());
         setBackground(GUIComponentParameter.textPanelColor);
+        textArea.setLineWrap(true);
+        textArea.setWrapStyleWord(true);
         add(new JScrollPane(textArea));
         register();
     }
