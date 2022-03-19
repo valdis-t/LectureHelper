@@ -6,7 +6,7 @@ import java.awt.*;
 
 public class KeywordsPanel extends RequestPanel implements Keywords {
     protected void initialize() {
-        setName("KEYWORDS");
+        setName("Ключевые слова");
         setBackground(Color.RED);
     }
 }

@@ -6,7 +6,7 @@ import java.awt.*;
 
 public class SearchRequestPanel extends RequestPanel implements SearchRequests {
     protected void initialize() {
-        setName("SEARCH REQUESTS");
+        setName("Поисковые запросы");
         setBackground(Color.CYAN);
     }
 }

@@ -46,6 +46,11 @@ public abstract class RequestPanel extends JPanel implements Changeable<String> 
     }
 
     @Override
+    public String getSourceName() {
+        return getName();
+    }
+
+    @Override
     public String getData() {
         StringBuilder builder = new StringBuilder();
         for (JComponent component : requests) {

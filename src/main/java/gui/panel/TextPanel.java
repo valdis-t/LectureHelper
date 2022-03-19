@@ -15,6 +15,7 @@ public class TextPanel extends JTabbedPane implements MainText {
     }
 
     public TextPanel() {
+        setName("Основной текст");
         setPreferredSize(GUIComponentParameter.textPanelDimension());
         setBackground(GUIComponentParameter.textPanelColor);
         add(new JScrollPane(textArea));
@@ -27,6 +28,11 @@ public class TextPanel extends JTabbedPane implements MainText {
         } catch (UnsupportedComponentException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public String getSourceName() {
+        return getName();
     }
 
     @Override

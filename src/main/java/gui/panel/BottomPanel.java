@@ -14,6 +14,7 @@ public class BottomPanel extends JPanel implements CurrentRequest {
     private final JLabel label = new JLabel("REQUEST");
 
     public BottomPanel() {
+        setName("Панель запросов");
         setPreferredSize(GUIComponentParameter.bottomPanelDimension());
         setMaximumSize(new Dimension(GUIComponentParameter.screenDimension.width, GUIComponentParameter.bottomPanelDimension().height));
         setBackground(GUIComponentParameter.bottomPanelColor);
@@ -35,6 +36,11 @@ public class BottomPanel extends JPanel implements CurrentRequest {
         } catch (UnsupportedComponentException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public String getSourceName() {
+        return getName();
     }
 
     @Override
