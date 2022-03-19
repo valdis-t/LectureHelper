@@ -1,8 +1,9 @@
 package gui.panel;
 
+import static boot.GUIComponentEvent.*;
+
 import boot.GUIComponentParameter;
 import controller.Controller;
-import controller.TextController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,47 +22,48 @@ public class ControlPanel extends JPanel {
         ArrayList<JButton> buttonList = new ArrayList<>();
 
         JButton addRequestToKeywords = new JButton("addRequestToKeywords");
+        addRequestToKeywords.setActionCommand(ADD_TO_KEYWORDS);
         buttonList.add(addRequestToKeywords);
-        addRequestToKeywords.addActionListener(l -> Controller.addRequestToKeywords());
 
         JButton addRequestToSearchRequests = new JButton("addRequestToSearchRequests");
+        addRequestToSearchRequests.setActionCommand(ADD_TO_SEARCH_REQUESTS);
         buttonList.add(addRequestToSearchRequests);
-        addRequestToSearchRequests.addActionListener(l -> Controller.addRequestToSearchRequests());
 
         JButton removeLastKeyword = new JButton("removeLastKeyword");
+        removeLastKeyword.setActionCommand(REMOVE_LAST_KEYWORD);
         buttonList.add(removeLastKeyword);
-        removeLastKeyword.addActionListener(l -> Controller.removeLastKeyword());
 
         JButton removeLastSearchRequest = new JButton("removeLastSearchRequest");
+        removeLastSearchRequest.setActionCommand(REMOVE_LAST_SEARCH_REQUEST);
         buttonList.add(removeLastSearchRequest);
-        removeLastSearchRequest.addActionListener(l -> Controller.removeLastSearchRequest());
 
         JButton removeAllKeyword = new JButton("removeAllKeyword");
+        removeAllKeyword.setActionCommand(REMOVE_ALL_KEYWORDS);
         buttonList.add(removeAllKeyword);
-        removeAllKeyword.addActionListener(l -> Controller.removeAllKeywords());
 
         JButton removeAllSearchRequest = new JButton("removeAllSearchRequest");
+        removeAllSearchRequest.setActionCommand(REMOVE_ALL_SEARCH_REQUESTS);
         buttonList.add(removeAllSearchRequest);
-        removeAllSearchRequest.addActionListener(l -> Controller.removeAllSearchRequests());
 
         JButton cleanRequestField = new JButton("cleanRequestField");
+        cleanRequestField.setActionCommand(CLEAN_REQUEST_FIELD);
         buttonList.add(cleanRequestField);
-        cleanRequestField.addActionListener(l -> Controller.cleanRequestField());
 
         JButton saveFile = new JButton("save file");
+        saveFile.setActionCommand(SAVE);
         buttonList.add(saveFile);
-        saveFile.addActionListener(l -> Controller.saveFile());
-
-        JButton saveAs = new JButton("save as");
-        buttonList.add(saveAs);
-        saveAs.addActionListener(l -> Controller.saveAs());
+//
+//        JButton saveAs = new JButton("save as");
+//        buttonList.add(saveAs);
+//        saveAs.addActionListener(l -> Controller.saveAs());
 
         JButton printToCL = new JButton("print");
+        printToCL.setActionCommand(PRINT_TO_CL);
         buttonList.add(printToCL);
-        printToCL.addActionListener(l -> Controller.printToCL());
 
         for (JButton button : buttonList) {
             button.setPreferredSize(new Dimension(GUIComponentParameter.controlPanelDimension().width / 2 - 7, GUIComponentParameter.controlPanelDimension().height / 5 - 7));
+            button.addActionListener(new Controller());
             add(button);
         }
     }
