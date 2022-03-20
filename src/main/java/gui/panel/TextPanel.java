@@ -7,7 +7,7 @@ import interfaces.entity.gui.MainText;
 
 import javax.swing.*;
 
-public class TextPanel extends JTabbedPane implements MainText {
+public class TextPanel extends JPanel implements MainText {
     private final JTextArea textArea;
 
     {
@@ -18,6 +18,7 @@ public class TextPanel extends JTabbedPane implements MainText {
         setName("Основной текст");
         setPreferredSize(GUIComponentParameter.textPanelDimension());
         setBackground(GUIComponentParameter.textPanelColor);
+        setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         textArea.setLineWrap(true);
         textArea.setWrapStyleWord(true);
         add(new JScrollPane(textArea));

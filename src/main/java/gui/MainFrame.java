@@ -8,7 +8,7 @@ import java.awt.*;
 
 public class MainFrame extends JFrame {
     private final JPanel rootPanel;
-    private final JTabbedPane textPanel;
+    private final JPanel textPanel;
     private final JTabbedPane searchRequestAndKeywordPanel;
     private final JPanel controlPanel;
     private final JPanel bottomPanel;
