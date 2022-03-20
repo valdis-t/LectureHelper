@@ -4,6 +4,7 @@ import static boot.GUIComponentEvent.*;
 
 import boot.GUIComponentParameter;
 import controller.Controller;
+import util.TextFormatterForGUIComponent;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,35 +22,35 @@ public class ControlPanel extends JPanel {
     private void initializeButtons() {
         ArrayList<JButton> buttonList = new ArrayList<>();
 
-        JButton addRequestToKeywords = new JButton("addRequestToKeywords");
+        JButton addRequestToKeywords = new JButton(TextFormatterForGUIComponent.getButtonText("addRequestTo keywords"));
         addRequestToKeywords.setActionCommand(ADD_TO_KEYWORDS);
         buttonList.add(addRequestToKeywords);
 
-        JButton addRequestToSearchRequests = new JButton("addRequestToSearchRequests");
+        JButton addRequestToSearchRequests = new JButton(TextFormatterForGUIComponent.getButtonText("addRequestTo searchRequests"));
         addRequestToSearchRequests.setActionCommand(ADD_TO_SEARCH_REQUESTS);
         buttonList.add(addRequestToSearchRequests);
 
-        JButton removeLastKeyword = new JButton("removeLastKeyword");
+        JButton removeLastKeyword = new JButton(TextFormatterForGUIComponent.getButtonText("removeLast keyword"));
         removeLastKeyword.setActionCommand(REMOVE_LAST_KEYWORD);
         buttonList.add(removeLastKeyword);
 
-        JButton removeLastSearchRequest = new JButton("removeLastSearchRequest");
+        JButton removeLastSearchRequest = new JButton(TextFormatterForGUIComponent.getButtonText("removeLast searchRequest"));
         removeLastSearchRequest.setActionCommand(REMOVE_LAST_SEARCH_REQUEST);
         buttonList.add(removeLastSearchRequest);
 
-        JButton removeAllKeyword = new JButton("removeAllKeyword");
+        JButton removeAllKeyword = new JButton(TextFormatterForGUIComponent.getButtonText("removeAll keyword"));
         removeAllKeyword.setActionCommand(REMOVE_ALL_KEYWORDS);
         buttonList.add(removeAllKeyword);
 
-        JButton removeAllSearchRequest = new JButton("removeAllSearchRequest");
+        JButton removeAllSearchRequest = new JButton(TextFormatterForGUIComponent.getButtonText("removeAll searchRequest"));
         removeAllSearchRequest.setActionCommand(REMOVE_ALL_SEARCH_REQUESTS);
         buttonList.add(removeAllSearchRequest);
 
-        JButton cleanRequestField = new JButton("cleanRequestField");
+        JButton cleanRequestField = new JButton(TextFormatterForGUIComponent.getButtonText("clean requestField"));
         cleanRequestField.setActionCommand(CLEAN_REQUEST_FIELD);
         buttonList.add(cleanRequestField);
 
-        JButton saveFile = new JButton("save file");
+        JButton saveFile = new JButton(TextFormatterForGUIComponent.getButtonText("save file"));
         saveFile.setActionCommand(SAVE);
         buttonList.add(saveFile);
 //
